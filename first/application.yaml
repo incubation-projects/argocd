@@ -1,11 +1,8 @@
 apiVersion: apps/v1
-kind: StatefulSet
+kind: Deployment
 metadata:
   name: maven
 spec:
-  serviceName: "maven"
-  replicas: 1
-  revisionHistoryLimit: 1
   selector:
     matchLabels:
       app: maven
