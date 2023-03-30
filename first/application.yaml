@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: maven
+spec:
+  serviceName: "maven"
+  replicas: 1
+  revisionHistoryLimit: 1
+  selector:
+    matchLabels:
+      app: maven
+  template:
+    metadata:
+      labels:
+        app: maven
+    spec:
+      containers:
+        - image: ghcr.io/incubation-projects/action:1680176444
+          name: maven
+          ports:
+            - containerPort: 8080
